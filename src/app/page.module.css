@@ -1,0 +1,445 @@
+/* page.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap');
+
+/* Biến màu chủ đạo */
+:root {
+  --pink: #fb6f92;
+  --soft-pink: #ffc2d1;
+  --pastel-bg: #fff5f7;
+  --cream: #ffffff;
+  --text-dark: #4a2b37;
+  --text-muted: #8e737d;
+}
+
+.pageContainer {
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--pastel-bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* 1. HEADER - HIỆU ỨNG KÍNH MỜ */
+.header {
+  position: fixed;
+  top: 0; 
+  width: 100%; 
+  z-index: 1000;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 18px 8%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(251, 111, 146, 0.1);
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(to right, var(--pink), #ff8fab);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.nav a {
+  margin: 0 18px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: var(--pink);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cartIcon {
+  position: relative;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: -8px; 
+  right: -12px;
+  background: var(--pink);
+  color: white;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 50%;
+  font-weight: 800;
+  border: 2px solid white;
+}
+
+/* 2. HERO SECTION - BANNER NHẤP NHÔ */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 8% 60px;
+  gap: 50px;
+}
+
+.heroContent {
+  flex: 1.2;
+}
+
+.heroContent span {
+  color: var(--pink);
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.heroContent h1 {
+  font-size: 4.2rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #2d1a22;
+  margin-bottom: 25px;
+  letter-spacing: -2px;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 550px;
+  margin-bottom: 40px;
+}
+
+.heroImage {
+  flex: 0.8;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* HIỆU ỨNG NHẤP NHÔ CHO BANNER */
+.floatingImg {
+  width: 100%;
+  z-index: 2;
+  border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+  animation: nhapNho 4s ease-in-out infinite;
+  filter: drop-shadow(0 30px 50px rgba(251, 111, 146, 0.3));
+}
+
+@keyframes nhapNho {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(2deg); /* Bay lên 30px */
+  }
+}
+
+.heroCircle {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  background: var(--soft-pink);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.3;
+  filter: blur(40px);
+}
+
+/* 3. FEATURES */
+.features {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 8%;
+  background: var(--cream);
+  border-radius: 50px;
+  margin: 0 4% 80px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.02);
+}
+
+.featureItem {
+  text-align: center;
+  flex: 1;
+}
+
+.featureItem h3 {
+  font-size: 1.1rem;
+  margin: 12px 0 6px;
+  font-weight: 800;
+}
+
+.featureItem p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* 4. PRODUCT GRID (15 SẢN PHẨM) */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectionHeader h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 35px;
+  padding: 0 8% 100px;
+}
+
+/* CARD SẢN PHẨM */
+.card {
+  background: var(--cream);
+  border-radius: 40px;
+  padding: 12px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(251, 111, 146, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(251, 111, 146, 0.15);
+}
+
+.imgWrapper {
+  width: 100%;
+  height: 280px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.imgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.card:hover .imgWrapper img {
+  transform: scale(1.1);
+}
+
+.tag {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--pink);
+  z-index: 5;
+}
+
+.cardInfo {
+  padding: 20px 10px 15px;
+  text-align: center;
+}
+
+.cardInfo h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--pink);
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* NÚT BẤM NHẬN NUÔI NGAY - ĐÃ CHỈNH SIÊU ĐẸP */
+.addBtn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border: none;
+  background: var(--pink);
+  color: white;
+  border-radius: 25px;
+  font-weight: 800;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+  text-align: center;
+  text-decoration: none; /* Bỏ gạch chân nếu dùng thẻ a */
+}
+
+.addBtn:hover {
+  background: #ff4d6d;
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(251, 111, 146, 0.3);
+}
+
+/* 5. NEWSLETTER - MÀU HỒNG PASTEL */
+.newsletter {
+  margin: 0 8% 100px;
+  padding: 80px 40px;
+  /* Chuyển sang Gradient Hồng Pastel cực mịn */
+  background: linear-gradient(135deg, var(--pastel-bg) 0%, var(--soft-pink) 100%);
+  border-radius: 60px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(251, 111, 146, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.newsletter h2 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  color: var(--pink);
+  font-weight: 800;
+}
+
+.newsletter p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.inputGroup {
+  display: flex;
+  justify-content: center;
+  max-width: 550px;
+  margin: 0 auto;
+  background: var(--cream);
+  padding: 8px;
+  border-radius: 40px;
+  border: 1px solid var(--soft-pink);
+}
+
+.inputGroup input {
+  background: transparent;
+  border: none;
+  padding: 0 25px;
+  color: var(--text-dark);
+  flex: 1;
+  outline: none;
+  font-family: inherit;
+}
+
+.submitBtn {
+  background: var(--pink);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submitBtn:hover {
+  background: #ff4d6d;
+}
+
+.secondaryBtn {
+  background: white;
+  color: var(--pink);
+  border: 1px solid #eee;
+  padding: 18px 35px;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* 6. FOOTER */
+.footer {
+  padding: 80px 8% 40px;
+  background: var(--cream);
+  border-top: 1px solid #eee;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+.footerBrand h2 {
+  color: var(--pink);
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.footerBrand p {
+  color: var(--text-muted);
+  max-width: 300px;
+}
+
+.footerCol h4 {
+  margin-bottom: 25px;
+  font-weight: 800;
+}
+
+.footerCol a {
+  display: block;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: 0.3s;
+}
+
+.footerCol a:hover {
+  color: var(--pink);
+  padding-left: 5px;
+}
+
+.copyText {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 160px;
+  }
+  .heroContent h1 {
+    font-size: 3rem;
+  }
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .inputGroup {
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    gap: 15px;
+  }
+  .inputGroup input {
+    background: white;
+    padding: 18px;
+    border-radius: 30px;
+    border: 1px solid #eee;
+  }
+}
